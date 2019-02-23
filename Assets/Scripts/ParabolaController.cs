@@ -6,7 +6,7 @@ public class ParabolaController : MonoBehaviour
     /// <summary>
     /// Animation Speed
     /// </summary>
-    public float Speed = 1;
+    public float Speed = 0.5f;
 
     /// <summary>
     /// Start of Parabola
@@ -81,7 +81,7 @@ public class ParabolaController : MonoBehaviour
     public void moveParabola(int direction)
     {
         GameObject parabola = new GameObject();
-        float localSpeed = 2f;
+        float localSpeed = 1f;
         switch (direction)
         {
             case 4:
@@ -138,10 +138,7 @@ public class ParabolaController : MonoBehaviour
             FollowParabola(Speed);
             //  nextParbola = true;
         }
-        else
-        {
-            goBack = false;
-        }
+      
     }
 
     public void FollowParabola(float speed)
