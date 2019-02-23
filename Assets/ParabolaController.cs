@@ -11,7 +11,10 @@ public class ParabolaController : MonoBehaviour
     /// <summary>
     /// Start of Parabola
     /// </summary>
-    public GameObject ParabolaRoot;
+    public GameObject ParabolaRight;
+    public GameObject ParabolaLeft;
+    public GameObject ParabolaFront;
+    public GameObject ParabolaBack;
 
     /// <summary>
     /// Autostart Animation
@@ -22,7 +25,7 @@ public class ParabolaController : MonoBehaviour
     /// Animate
     /// </summary>
     public bool Animation = true;
-
+    bool goBack = false;
     //next parabola event
     internal bool nextParbola = false;
 
@@ -35,11 +38,12 @@ public class ParabolaController : MonoBehaviour
     //draw
     protected ParabolaFly parabolaFly;
 
+
     void OnDrawGizmos()
     {
         if (gizmo == null)
         {
-            gizmo = new ParabolaFly(ParabolaRoot.transform);
+            gizmo = new ParabolaFly(ParabolaBack.transform);
         }
 
         gizmo.RefreshTransforms(1f);
@@ -65,15 +69,38 @@ public class ParabolaController : MonoBehaviour
     void Start()
     {
 
-        parabolaFly = new ParabolaFly(ParabolaRoot.transform);
+        //parabolaFly = new ParabolaFly(ParabolaRoot.transform);
 
-        if (Autostart)
-        {
-            RefreshTransforms(Speed);
-            FollowParabola();
-        }
+        //if (Autostart)
+        //{
+        //    RefreshTransforms(Speed);
+        //    FollowParabola();
+        //}
     }
 
+    public void moveParabola(int direction)
+    {
+        GameObject parabola = new GameObject();
+        switch (direction)
+        {
+            case 4:
+                parabola = ParabolaRight;
+                break;
+            case 3:
+                parabola = ParabolaLeft;
+                break;
+            case 2:
+                parabola = ParabolaFront;
+                break;
+            default:
+                print("Incorrect intelligence level.");
+                break;
+        }
+        goBack = false;
+        parabolaFly = new ParabolaFly(parabola.transform);
+        RefreshTransforms(Speed);
+        FollowParabola();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -95,10 +122,16 @@ public class ParabolaController : MonoBehaviour
             //if (transform.position.y > HighestPoint.y)
             //HighestPoint = transform.position;
         }
-        else if (Animation && parabolaFly != null && animationTime > parabolaFly.GetDuration())
+        else if (Animation && parabolaFly != null && animationTime > parabolaFly.GetDuration() && !goBack)
         {
-            animationTime = float.MaxValue;
-            Animation = false;
+          //  animationTime = float.MaxValue;
+          //  Animation = false;
+            Debug.Log("FINISHED");
+            goBack = true;
+            parabolaFly = new ParabolaFly(ParabolaBack.transform);
+            RefreshTransforms(Speed);
+            FollowParabola();
+            //  nextParbola = true;
         }
 
     }
