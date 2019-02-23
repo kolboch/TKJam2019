@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 0
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "253506497651-ia0f0nujhq5np26lkuqltev9b0k4hdn4.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgwU4EssSttzMPZwBW9MWm2lFGbCL8WTg"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:253506497651:ios:4f4938e7c2a9db7b", 
+        "android_client_info": {
+          "package_name": "com.tkjam2019.salad"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "tkjam2019.appspot.com", 
+    "project_id": "tkjam2019", 
+    "firebase_url": "https://tkjam2019.firebaseio.com", 
+    "project_number": "253506497651"
+  }
+}
