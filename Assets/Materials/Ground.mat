@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ground
-  m_Shader: {fileID: 4800000, guid: 80047d381f2ae4c3c8d17db63fd79012, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -77,6 +77,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 0.98039216, b: 0.972549, a: 1}
     - _ColorTint: {r: 0.98039216, g: 0.98039216, b: 0.9647059, a: 1}
-    - _EmissionColor: {r: 1024, g: 0, b: 775.02747, a: 1}
+    - _EmissionColor: {r: 0.15389305, g: 0.038473263, b: 0.11743515, a: 1}
     - _RimColor: {r: 0.34901962, g: 1, b: 0.05882353, a: 1}
     - _TintColor: {r: 0.49411765, g: 0, b: 0.007843138, a: 0.5}
