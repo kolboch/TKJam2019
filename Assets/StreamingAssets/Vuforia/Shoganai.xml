@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="karta6" size="0.080000 0.115315" />
+    <ImageTarget name="karta5" size="0.080000 0.115315" />
+    <ImageTarget name="karta4" size="0.080000 0.115315" />
+    <ImageTarget name="karta3" size="0.080000 0.115315" />
+    <ImageTarget name="karta2" size="0.080000 0.115315" />
+    <ImageTarget name="karta1" size="0.080000 0.115315" />
+    <ImageTarget name="gracz2" size="0.080000 0.080234" />
+    <ImageTarget name="gracz1" size="0.080000 0.080234" />
+    <ImageTarget name="Plansza" size="0.180000 0.180000" />
     <ImageTarget name="test" size="0.085000 0.047378" />
   </Tracking>
 </QCARConfig>
