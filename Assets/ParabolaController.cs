@@ -25,7 +25,7 @@ public class ParabolaController : MonoBehaviour
     /// Animate
     /// </summary>
     public bool Animation = true;
-    bool goBack = false;
+    public bool goBack = false;
     //next parabola event
     internal bool nextParbola = false;
 
@@ -81,16 +81,20 @@ public class ParabolaController : MonoBehaviour
     public void moveParabola(int direction)
     {
         GameObject parabola = new GameObject();
+        float localSpeed = 2f;
         switch (direction)
         {
             case 4:
                 parabola = ParabolaRight;
+              
                 break;
             case 3:
                 parabola = ParabolaLeft;
+
                 break;
             case 2:
                 parabola = ParabolaFront;
+              
                 break;
             default:
                 print("Incorrect intelligence level.");
@@ -98,8 +102,8 @@ public class ParabolaController : MonoBehaviour
         }
         goBack = false;
         parabolaFly = new ParabolaFly(parabola.transform);
-        RefreshTransforms(Speed);
-        FollowParabola();
+        RefreshTransforms(localSpeed);
+        FollowParabola(localSpeed);
     }
     // Update is called once per frame
     void Update()
@@ -130,15 +134,14 @@ public class ParabolaController : MonoBehaviour
             goBack = true;
             parabolaFly = new ParabolaFly(ParabolaBack.transform);
             RefreshTransforms(Speed);
-            FollowParabola();
+            FollowParabola(Speed);
             //  nextParbola = true;
         }
-
     }
 
-    public void FollowParabola()
+    public void FollowParabola(float speed)
     {
-        RefreshTransforms(Speed);
+        RefreshTransforms(speed);
         animationTime = 0f;
         transform.position = parabolaFly.Points[0].position;
         Animation = true;

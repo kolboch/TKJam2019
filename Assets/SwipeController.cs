@@ -30,7 +30,7 @@ public class SwipeController : MonoBehaviour {
             {
                 lp = touch.position;
             }
-            else if (touch.phase == TouchPhase.Ended) //check if the finger is removed from the screen
+            else if (touch.phase == TouchPhase.Ended && !parabola.goBack) //check if the finger is removed from the screen
             {
                 lp = touch.position;  //last touch position. Ommitted if you use list
 
@@ -43,13 +43,13 @@ public class SwipeController : MonoBehaviour {
                         if ((lp.x > fp.x))  //If the movement was to the right)
                         {   //Right swipe
                             Debug.Log("Right Swipe");
-                            debug.text = "Right Swipe";
+                           // debug.text = "Right Swipe";
                             parabola.moveParabola(4);
                         }
                         else
                         {   //Left swipe
                             Debug.Log("Left Swipe");
-                            debug.text = "Left Swipe";
+                           // debug.text = "Left Swipe";
                             parabola.moveParabola(3);
                         }
                     }
@@ -58,13 +58,13 @@ public class SwipeController : MonoBehaviour {
                         if (lp.y > fp.y)  //If the movement was up
                         {   //Up swipe
                             Debug.Log("Up Swipe");
-                            debug.text = "Up Swipe";
+                          //  debug.text = "Up Swipe";
                             parabola.moveParabola(2);
                         }
                         else
                         {   //Down swipe
                             Debug.Log("Down Swipe");
-                            debug.text = "Down Swipe";
+                           // debug.text = "Down Swipe";
                         }
                     }
                 }
