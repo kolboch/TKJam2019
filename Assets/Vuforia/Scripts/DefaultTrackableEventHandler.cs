@@ -22,6 +22,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     protected TrackableBehaviour mTrackableBehaviour;
     public AudioSource audio;
     public AudioClip zalardo;
+    bool wasNotPlayed = true;
     
     #endregion // PROTECTED_MEMBER_VARIABLES
 
@@ -58,9 +59,10 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
-            if(mTrackableBehaviour.TrackableName == "karta5")
+            if(mTrackableBehaviour.TrackableName == "karta5" && wasNotPlayed)
             {
                 audio.PlayOneShot(zalardo);
+                wasNotPlayed = false;
             }
 
             OnTrackingFound();

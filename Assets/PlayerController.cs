@@ -10,13 +10,11 @@ public class PlayerController : MonoBehaviour {
     public float staminaSpeed;
     public DistanceLogger logger;
     public Text staminaTxt;
-	// Use this for initialization
-	void Start () {
-        stamina -= logger.distanceTraveled;
-	}
+	
 	
 	// Update is called once per frame
 	void Update () {
+        stamina -= logger.distanceTraveled*50f;
         stamina += Time.deltaTime * staminaSpeed;
         staminaTxt.text = stamina.ToString();
 	}
