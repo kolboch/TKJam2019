@@ -27,6 +27,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void Start()
     {
+
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
@@ -54,11 +55,11 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             newStatus == TrackableBehaviour.Status.TRACKED ||
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
-            Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
-            if(mTrackableBehaviour.TrackableName == "test")
-            {
-                FirebaseDbUtils.onBoardRecognized();
-            }
+            //Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+            //if(mTrackableBehaviour.TrackableName == "test")
+            //{
+               
+            //}
             OnTrackingFound();
         }
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&

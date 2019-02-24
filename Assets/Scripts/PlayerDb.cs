@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerDb
 {
-    public int dmgMade;
+    public long dmgMade;
+
+    public PlayerDb(long dmgMade)
+    {
+        this.dmgMade = dmgMade;
+    }
 
     public PlayerDb()
     {

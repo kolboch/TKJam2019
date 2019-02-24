@@ -13,6 +13,7 @@ public class SwipeController : MonoBehaviour {
 
     void Start()
     {
+        FirebaseDbUtils.onBoardRecognized();
         dragDistance = Screen.height * 15 / 100; //dragDistance is 15% height of the screen
     }
 

@@ -18,13 +18,9 @@ public static class FirebaseDbUtils
         get { return FirebaseDatabase.DefaultInstance.RootReference; }
     }
 
-    private static DatabaseReference playersReference
-    {
-        get { return dbReference.Child(PLAYERS_NODE); }
-    }
-
     public static void onBoardRecognized()
     {
+     //   pushPlayer(PLAYER_1);
         registerPlayer();
         subscribeToUpdateProgress();
     }
@@ -33,7 +29,7 @@ public static class FirebaseDbUtils
     {
         if (player != null && opponent != null)
         {
-            return player.dmgMade - opponent.dmgMade;
+            return (int)(player.dmgMade - opponent.dmgMade);
         }
 
         return 0;
@@ -48,7 +44,7 @@ public static class FirebaseDbUtils
     private static void subscribeToUpdateProgress()
     {
         // subscribe to event changes
-        playersReference.ValueChanged += OnPlayersNodeChanged;
+        dbReference.ValueChanged += OnPlayersNodeChanged;
     }
 
     private static void OnPlayersNodeChanged(object Sender, ValueChangedEventArgs args)
@@ -72,7 +68,7 @@ public static class FirebaseDbUtils
 
     private static void registerPlayer()
     {
-        playersReference.Child(PLAYER_1).GetValueAsync().ContinueWith(task =>
+        dbReference.Child(PLAYER_1).GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
@@ -81,7 +77,7 @@ public static class FirebaseDbUtils
             else if (task.IsCompleted)
             {
                 DataSnapshot snap = task.Result;
-                if (snap != null)
+                if (snap != null && snap.Value != null)
                 {
                     registerAsSecondPlayer();
                 }
@@ -95,7 +91,7 @@ public static class FirebaseDbUtils
 
     private static void registerAsSecondPlayer()
     {
-        playersReference.Child(PLAYER_2).GetValueAsync().ContinueWith(task =>
+        dbReference.Child(PLAYER_2).GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
@@ -104,9 +100,10 @@ public static class FirebaseDbUtils
             else if (task.IsCompleted)
             {
                 DataSnapshot snap = task.Result;
-                if (snap != null)
+                if (snap != null && snap.Value != null)
                 {
                     resetPlayersNode();
+                    registerPlayer();
                 }
                 else
                 {
@@ -120,14 +117,15 @@ public static class FirebaseDbUtils
     {
         player = new PlayerDb();
         registeredPlayer = playerIdentifier;
-        playersReference.Child(playerIdentifier).SetValueAsync(player);
+        string json = JsonUtility.ToJson(player);
+        dbReference.Child(playerIdentifier).SetRawJsonValueAsync(json);
     }
 
     private static void updatePlayer()
     {
         if (registeredPlayer != null)
         {
-            playersReference.Child(registeredPlayer).SetValueAsync(player);
+            dbReference.Child(registeredPlayer).SetValueAsync(player);
         }
         else
         {
@@ -137,6 +135,6 @@ public static class FirebaseDbUtils
 
     private static void resetPlayersNode()
     {
-        playersReference.SetValueAsync(null);
+        dbReference.SetValueAsync(null);
     }
 }
