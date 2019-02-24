@@ -12,6 +12,9 @@ public class Open : MonoBehaviour {
         {
             sword.SetActive(true);
             this.gameObject.active = false;
+            other.GetComponent<ParabolaController>().sword.GetComponent<MeshRenderer>().material = sword.GetComponent<MeshRenderer>().material;
+            other.GetComponent<ParabolaController>().trail.GetComponent<TrailRenderer>().material = sword.GetComponent<MeshRenderer>().material;
+            this.sword.active = false;
             Destroy(this.gameObject);
         }
     }

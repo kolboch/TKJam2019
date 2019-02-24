@@ -7,7 +7,8 @@ public class ParabolaController : MonoBehaviour
     /// Animation Speed
     /// </summary>
     public float Speed = 0.5f;
-
+    public GameObject sword;
+    public GameObject trail;
     /// <summary>
     /// Start of Parabola
     /// </summary>
@@ -72,6 +73,7 @@ public class ParabolaController : MonoBehaviour
 
         if (this.gameObject.tag == "sushi")
         {
+            Debug.Log(this.gameObject.name);
             parabolaFly = new ParabolaFly(ParabolaBack.transform);
             this.goBack = true;
             if (Autostart)
@@ -90,21 +92,25 @@ public class ParabolaController : MonoBehaviour
         {
             case 4:
                 parabola = ParabolaRight;
-              
+                goBack = false;
                 break;
             case 3:
                 parabola = ParabolaLeft;
-
+                goBack = false;
                 break;
             case 2:
                 parabola = ParabolaFront;
-              
+                goBack = false;
+                break;
+            case 5:
+                parabola = ParabolaBack;
+                goBack = true;
                 break;
             default:
                 print("Incorrect intelligence level.");
                 break;
         }
-        goBack = false;
+
         parabolaFly = new ParabolaFly(parabola.transform);
         RefreshTransforms(localSpeed);
         FollowParabola(localSpeed);

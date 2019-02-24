@@ -8,9 +8,14 @@ public class ThrowSushi : MonoBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void doIt()
+    {
+        Instantiate(sushi);
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if(Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(sushi);

@@ -22,13 +22,16 @@ public class ClickController : MonoBehaviour {
                 arena.setProgressValue(FirebaseDbUtils.getProgress());
                 if (hit.transform.name == "HouseWhite" && FirebaseDbUtils.playerNum == 1)
                 {
+                    hit.transform.gameObject.GetComponent<ThrowSushi>().doIt();
                 
-                    arena.setProgressValue(10);
+                    //arena.setProgressValue(10);
+                    //arena.setProgressValue(FirebaseDbUtils.getProgress());
                 }
                 if (hit.transform.name == "HouseBlack" && FirebaseDbUtils.playerNum == 2)
                 {
-                   
-                    arena.setProgressValue(FirebaseDbUtils.getProgress());
+                    //arena.setProgressValue(10);
+                    //arena.setProgressValue(FirebaseDbUtils.getProgress());
+                    hit.transform.gameObject.GetComponent<ThrowSushi>().doIt();
                 }
             }
         }
