@@ -7,7 +7,7 @@ public class DistanceLogger : MonoBehaviour {
     public Text distance;
     private Vector3 lastPosition;
     Vector3 startPos;
-    private float distanceTraveled;
+    public float distanceTraveled;
     // Use this for initialization
    
    void Start () {
@@ -18,6 +18,6 @@ public class DistanceLogger : MonoBehaviour {
 	void Update () {
         distanceTraveled = Vector3.Distance(Camera.main.transform.position, startPos);
         //lastPosition = transform.position;
-        distance.text = distanceTraveled.ToString();
+      //  distance.text = distanceTraveled.ToString();
     }
 }

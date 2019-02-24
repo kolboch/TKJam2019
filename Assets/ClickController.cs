@@ -22,7 +22,7 @@ public class ClickController : MonoBehaviour {
                 arena.setProgressValue(FirebaseDbUtils.getProgress());
                 if (hit.transform.name == "HouseWhite" && FirebaseDbUtils.playerNum == 1)
                 {
-                    hit.transform.gameObject.GetComponent<ThrowSushi>().doIt();
+                    hit.transform.gameObject.GetComponent<ThrowSushi>().doIt2(1);
                 
                     //arena.setProgressValue(10);
                     //arena.setProgressValue(FirebaseDbUtils.getProgress());
@@ -31,7 +31,7 @@ public class ClickController : MonoBehaviour {
                 {
                     //arena.setProgressValue(10);
                     //arena.setProgressValue(FirebaseDbUtils.getProgress());
-                    hit.transform.gameObject.GetComponent<ThrowSushi>().doIt();
+                    hit.transform.gameObject.GetComponent<ThrowSushi>().doIt2(1);
                 }
             }
         }

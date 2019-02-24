@@ -19,7 +19,7 @@ public class SwipeController : MonoBehaviour {
 
     void Update()
     {
-        debug.text = FirebaseDbUtils.getProgress().ToString();
+      //  debug.text = FirebaseDbUtils.getProgress().ToString();
         if (Input.touchCount == 1) // user is touching the screen with a single touch
         {
             Touch touch = Input.GetTouch(0); // get the touch

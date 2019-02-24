@@ -20,7 +20,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
-
+    public AudioSource audio;
+    public AudioClip zalardo;
+    
     #endregion // PROTECTED_MEMBER_VARIABLES
 
     #region UNITY_MONOBEHAVIOUR_METHODS
@@ -55,11 +57,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             newStatus == TrackableBehaviour.Status.TRACKED ||
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
-            //Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
-            //if(mTrackableBehaviour.TrackableName == "test")
-            //{
-               
-            //}
+            Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+            if(mTrackableBehaviour.TrackableName == "karta5")
+            {
+                audio.PlayOneShot(zalardo);
+            }
+
             OnTrackingFound();
         }
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&

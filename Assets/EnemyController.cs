@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
     public float enemyHP = 100f;
+    public AudioClip tuturu;
+    public AudioSource audio;
     float attack = 10f;
     public bool isAtacking = false;
+    public GameObject loot;
     Color startColor;
     public ParabolaController parabola;
 
@@ -30,6 +33,9 @@ public class EnemyController : MonoBehaviour {
 
         if (enemyHP <= 0)
         {
+            audio.PlayOneShot(tuturu);
+            loot.transform.parent = null;
+            loot.gameObject.SetActive(true);
             this.gameObject.active = false;
             Destroy(this.gameObject);
         }
