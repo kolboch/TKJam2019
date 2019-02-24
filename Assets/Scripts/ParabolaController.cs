@@ -69,13 +69,17 @@ public class ParabolaController : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
-        //parabolaFly = new ParabolaFly(ParabolaRoot.transform);
 
-        //if (Autostart)
-        //{
-        //    RefreshTransforms(Speed);
-        //    FollowParabola();
-        //}
+        if (this.gameObject.tag == "sushi")
+        {
+            parabolaFly = new ParabolaFly(ParabolaBack.transform);
+            this.goBack = true;
+            if (Autostart)
+            {
+                RefreshTransforms(Speed);
+                FollowParabola(Speed);
+            }
+        }
     }
 
     public void moveParabola(int direction)
@@ -109,7 +113,7 @@ public class ParabolaController : MonoBehaviour
     void Update()
     {
         nextParbola = false;
-       
+
 
         if (Animation && parabolaFly != null && animationTime < parabolaFly.GetDuration())
         {
@@ -123,20 +127,25 @@ public class ParabolaController : MonoBehaviour
 
             if (parabolaIndexBefore != parabolaIndexAfter)
                 nextParbola = true;
-
-            //if (transform.position.y > HighestPoint.y)
-            //HighestPoint = transform.position;
         }
-        else if (Animation && parabolaFly != null && animationTime > parabolaFly.GetDuration() && !goBack)
+        else
         {
-          //  animationTime = float.MaxValue;
-          //  Animation = false;
-            Debug.Log("FINISHED");
-            goBack = true;
-            parabolaFly = new ParabolaFly(ParabolaBack.transform);
-            RefreshTransforms(Speed);
-            FollowParabola(Speed);
-            //  nextParbola = true;
+            if (this.gameObject.tag == "sushi")
+            {
+                this.gameObject.active = false;
+                Destroy(this.gameObject);
+            }
+            if (Animation && parabolaFly != null && animationTime > parabolaFly.GetDuration() && !goBack)
+            {
+                //  animationTime = float.MaxValue;
+                //  Animation = false;
+                Debug.Log("FINISHED");
+                goBack = true;
+                parabolaFly = new ParabolaFly(ParabolaBack.transform);
+                RefreshTransforms(Speed);
+                FollowParabola(Speed);
+                //  nextParbola = true;
+            }
         }
       
     }

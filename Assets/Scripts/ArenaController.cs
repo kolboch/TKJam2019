@@ -29,8 +29,9 @@ public class ArenaController : MonoBehaviour
     /**
      * value between PROGRESS_MIN and PROGRESS_MAX
      */
-    public void setProgressValue()
+    public void setProgressValue(int value)
     {
+        progressValue += value;
     }
 
     public void updatePlayersPosition()

@@ -98,7 +98,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = true;
-        this.GetComponent<DistanceLogger>().enabled = true;
+       
+         this.GetComponent<DistanceLogger>().enabled = true;
     }
 
 

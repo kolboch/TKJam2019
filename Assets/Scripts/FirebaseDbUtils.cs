@@ -12,7 +12,7 @@ public static class FirebaseDbUtils
     private static PlayerDb player;
     private static PlayerDb opponent;
     private static int progressDbTracked = 0;
-
+    public static int playerNum = 0;
     private static DatabaseReference dbReference
     {
         get { return FirebaseDatabase.DefaultInstance.RootReference; }
@@ -84,6 +84,7 @@ public static class FirebaseDbUtils
                 else
                 {
                     pushPlayer(PLAYER_1);
+                    playerNum = 1;
                 }
             }
         });
@@ -108,6 +109,7 @@ public static class FirebaseDbUtils
                 else
                 {
                     pushPlayer(PLAYER_2);
+                    playerNum = 2;
                 }
             }
         });
