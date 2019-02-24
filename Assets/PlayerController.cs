@@ -7,15 +7,19 @@ public class PlayerController : MonoBehaviour {
     public float attack = 10f;
     public float stamina = 100f;
     public int lootCount = 0;
-    public float staminaSpeed;
+    public float staminaSpeed = 1f;
     public DistanceLogger logger;
     public Text staminaTxt;
 	
 	
 	// Update is called once per frame
 	void Update () {
-        stamina -= logger.distanceTraveled*50f;
-        stamina += Time.deltaTime * staminaSpeed;
+         if (stamina < 100 && stamina > 0)
+        {
+            stamina += Time.deltaTime * staminaSpeed;
+            stamina -= logger.distanceTraveled;
+        }
+
         staminaTxt.text = stamina.ToString();
 	}
 

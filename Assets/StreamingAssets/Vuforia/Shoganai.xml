@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="IMG_6521" size="0.060000 0.083069" />
+    <ImageTarget name="IMG_6522" size="0.060000 0.082470" />
+    <ImageTarget name="IMG_6523" size="0.060000 0.083172" />
+    <ImageTarget name="IMG_6524" size="0.060000 0.084000" />
+    <ImageTarget name="IMG_6525" size="0.060000 0.080526" />
+    <ImageTarget name="IMG_6526" size="0.060000 0.081846" />
     <ImageTarget name="karta6" size="0.080000 0.115315" />
     <ImageTarget name="karta5" size="0.080000 0.115315" />
     <ImageTarget name="karta4" size="0.080000 0.115315" />

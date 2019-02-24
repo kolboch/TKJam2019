@@ -9,7 +9,8 @@ public class SwipeController : MonoBehaviour {
     private Vector3 lp;   //Last touch position
     private float dragDistance;  //minimum distance for a swipe to be registered
     public Text debug;
-    public ParabolaController parabola;
+    public ParabolaController parabolaBlack;
+    public ParabolaController parabolaWhite;
 
     void Start()
     {
@@ -46,17 +47,21 @@ public class SwipeController : MonoBehaviour {
                         {   //Right swipe
                             Debug.Log("Right Swipe");
                             // debug.text = "Right Swipe";
-                            parabola.goBack = false;
-                            parabola.moveParabola(4);
-                     
+                            parabolaBlack.goBack = false;
+                            parabolaBlack.moveParabola(4);
+                            parabolaWhite.goBack = false;
+                            parabolaWhite.moveParabola(4);
+
                         }
                         else
                         {   //Left swipe
                             Debug.Log("Left Swipe");
                             // debug.text = "Left Swipe";
-                            parabola.goBack = false;
-                            parabola.moveParabola(3);
-                         
+                            parabolaBlack.goBack = false;
+                            parabolaBlack.moveParabola(3);
+                            parabolaWhite.goBack = false;
+                            parabolaWhite.moveParabola(3);
+
                         }
                     }
                     else
@@ -65,9 +70,12 @@ public class SwipeController : MonoBehaviour {
                         {   //Up swipe
                             Debug.Log("Up Swipe");
                             //  debug.text = "Up Swipe";
-                            parabola.goBack = false;
-                            parabola.moveParabola(2);
-                          
+                            parabolaBlack.goBack = false;
+                            parabolaBlack.moveParabola(2);
+                            parabolaWhite.goBack = false;
+                            parabolaWhite.moveParabola(2);
+
+
                         }
                         else
                         {   //Down swipe

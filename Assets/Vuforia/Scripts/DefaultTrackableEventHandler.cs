@@ -20,17 +20,15 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
-    public AudioSource audio;
-    public AudioClip zalardo;
-    bool wasNotPlayed = true;
-    
+
+
     #endregion // PROTECTED_MEMBER_VARIABLES
 
     #region UNITY_MONOBEHAVIOUR_METHODS
 
     protected virtual void Start()
     {
-
+ 
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
@@ -59,11 +57,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
-            if(mTrackableBehaviour.TrackableName == "karta5" && wasNotPlayed)
-            {
-                audio.PlayOneShot(zalardo);
-                wasNotPlayed = false;
-            }
 
             OnTrackingFound();
         }
@@ -104,7 +97,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         foreach (var component in canvasComponents)
             component.enabled = true;
        
-         this.GetComponent<DistanceLogger>().enabled = true;
+       
     }
 
 

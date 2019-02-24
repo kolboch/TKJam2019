@@ -68,12 +68,12 @@ public class EnemyController : MonoBehaviour {
           
             t += Time.deltaTime;
        
-            transform.localScale = new Vector3(transform.localScale.x, 0.003f, transform.localScale.z);
+      
             transform.rotation = startRot * Quaternion.AngleAxis(t / duration * 1080f, Vector3.up); //or transform.right if you want it to be locally based
             yield return null;
         }
         transform.rotation = startRot;
-        transform.localScale = new Vector3(transform.localScale.x, 0.005f, transform.localScale.z);
+       
         isAtacking = false;
         yield return new WaitForSeconds(delay);
         parabola.moveParabola(5);
